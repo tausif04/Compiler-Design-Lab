@@ -2,7 +2,7 @@
 %{
 #include <stdio.h>
 int yylex();
-int yyerror(); 
+int yyerror(const char *s); 
 extern FILE *yyin;
 %}
 
@@ -34,7 +34,7 @@ exp:
 %%
 
 /*User section */
-int main(){
+int main(void){
     yyin=fopen("input.txt", "r");
     int res=yyparse();
     fclose(yyin);
